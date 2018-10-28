@@ -13,13 +13,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Setting up server public directory for the static assets
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/app/public')));
 
 // Routes
 // ===========================================================
 
-require('./app/routing/api-routes.js')(app);
-require('./app/routing/html-routes.js')(app);
+require('./app/routes/api-routes.js')(app);
+require('./app/routes/html-routes.js')(app);
+
+
 
 //Starting server on PORT
 app.listen(PORT, function(){
