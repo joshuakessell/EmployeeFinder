@@ -6,7 +6,8 @@ const path = require('path');
 const app = express();
 
 // Setting port for localhost
-const PORT = 8080;
+const PORT = process.env.PORT || 3000;
+
 
 // Setting up server to parse the body
 app.use(express.urlencoded({ extended: true }));
@@ -24,6 +25,6 @@ require('./app/routes/html-routes.js')(app);
 
 
 //Starting server on PORT
-app.listen(PORT, function(){
-    console.log(`App is now listening on PORT ${PORT}`)
-})
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
